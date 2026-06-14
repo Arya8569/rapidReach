@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .test-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="test-box">
+        <h1>Test Page</h1>
+        <p>If you can see this, the basic HTML is working.</p>
+        <p>Environment variables:</p>
+        <ul>
+            <li>VITE_SUPABASE_URL: <span id="env-url">Loading...</span></li>
+            <li>VITE_SUPABASE_ANON_KEY: <span id="env-key">Loading...</span></li>
+            <li>VITE_GROQ_API_KEY: <span id="env-groq">Loading...</span></li>
+        </ul>
+        <p>React Status: <span id="react-status">Checking...</span></p>
+    </div>
+
+    <script>
+        // Test environment variables
+        document.getElementById('env-url').textContent = 
+            import.meta.env.VITE_SUPABASE_URL ? '✅ Set' : '❌ Not Set';
+        document.getElementById('env-key').textContent = 
+            import.meta.env.VITE_SUPABASE_ANON_KEY ? '✅ Set' : '❌ Not Set';
+        document.getElementById('env-groq').textContent = 
+            import.meta.env.VITE_GROQ_API_KEY ? '✅ Set' : '❌ Not Set';
+
+        // Test React
+        try {
+            import('./src/main.tsx');
+            document.getElementById('react-status').textContent = '✅ React Loading';
+        } catch (error) {
+            console.error('React import error:', error);
+            document.getElementById('react-status').textContent = '❌ React Error: ' + error.message;
+        }
+    </script>
+</body>
+</html>

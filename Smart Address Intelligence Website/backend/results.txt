@@ -1,0 +1,8 @@
+--- Testing Nominatim Queries ---
+Query: 'Dutta Meghe College of Engineering Airoli Navi Mumbai' -> Success: False
+Query: 'Datta Meghe College of Engineering Airoli Navi Mumbai' -> Success: True
+  Result: Datta Meghe College Of Engineering, Airoli Sector 2, Airoli, Navi Mumbai, Thane Taluka, Thane, Maharashtra, India
+Query: 'College of Engineering Airoli' -> Success: True
+  Result: Datta Meghe College Of Engineering, Airoli Sector 2, Airoli, Navi Mumbai, Thane Taluka, Thane, Maharashtra, India
+Query: 'Engineering College Airoli' -> Success: True
+  Result: Datta Meghe College Of Engineering, Airoli Sector 2, Airoli, Navi Mumbai, Thane Taluka, Thane, Maharashtra, India

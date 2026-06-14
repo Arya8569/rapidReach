@@ -1,0 +1,37 @@
+services:
+  # 1. Python Flask API Backend Service
+  - type: web
+    name: rapidreach-api
+    env: python
+    rootDir: Smart Address Intelligence Website/backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: VITE_SUPABASE_URL
+        sync: false
+      - key: VITE_SUPABASE_ANON_KEY
+        sync: false
+      - key: VITE_GROQ_API_KEY
+        sync: false
+      - key: VITE_NOMINATIM_API_URL
+        value: https://nominatim.openstreetmap.org
+
+  # 2. React Vite Frontend Static Service
+  - type: web
+    name: rapidreach-frontend
+    env: static
+    rootDir: Smart Address Intelligence Website
+    buildCommand: npm install && npm run build
+    publishPath: dist
+    envVars:
+      - key: VITE_SUPABASE_URL
+        sync: false
+      - key: VITE_SUPABASE_ANON_KEY
+        sync: false
+      - key: VITE_NOMINATIM_API_URL
+        value: https://nominatim.openstreetmap.org
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: rapidreach-api
+          property: host

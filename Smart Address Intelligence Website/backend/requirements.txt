@@ -1,0 +1,9 @@
+flask
+flask-cors
+deep-translator
+nltk
+requests
+Pillow
+groq
+python-dotenv
+gunicorn
