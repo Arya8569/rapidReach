@@ -1,5 +1,7 @@
 # RapidReach - Smart Address Intelligence Platform
 
+**Live Demo**: [https://rapidreach-frontend-0ux4.onrender.com](https://rapidreach-frontend-0ux4.onrender.com)
+
 RapidReach is a production-ready, full-stack web application designed to transform noisy, unstructured, or incomplete address text into precise, geocoded locations in India. By combining advanced AI-driven normalisation (powered by Llama 3 via Groq) and multi-stage OpenStreetMap/Nominatim geocoding, it solves the challenge of locating fuzzy or informal addresses.
 
 ---
